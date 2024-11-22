@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Student{
+  public:
+    int id;
+    string name;
+    char sec;
+    int mark;
+    
+    Student(int id,string name,char sec,int mark){
+        this->id=id;
+        this->name=name;
+        this->sec=sec;
+        this->mark=mark;
+    }
+};
+
+int main() {
+   
+     int t;
+     cin>>t;
+     while(t--){
+         
+         int id,mark;
+         char sec;
+         string name;
+         
+         Student high(0,"",'A',-1);
+         
+         for(int i=0;i<3;i++){
+            cin>>id>>name>>sec>>mark;
+         Student current(id,name,sec,mark);
+         
+         if(current.mark>high.mark || (current.mark==high.mark && current.id<high.id))
+             high=current;
+         
+         }
+        
+        cout<<high.id<<" "<<high.name<<" "<<high.sec<<" "<<high.mark<<endl;
+        
+     }
+
+
+	
+}
