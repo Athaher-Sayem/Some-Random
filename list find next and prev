@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    list<string> l;
+    while(1){
+        string x;
+        cin>>x;
+        if(x=="end") break;
+        else l.push_back(x);
+    }
+    
+    auto index=l.begin(),it=l.begin(),nex=l.begin(),pre=l.begin();
+    int qu;
+    cin>>qu;
+    while(qu--){
+        string com;
+        cin>>com;
+        if(com=="visit") {
+            string vcom;
+            cin>>vcom;
+             it=find(l.begin(),l.end(),vcom);
+            if(it==l.end()) cout<<"Not Available"<<endl;
+            else {
+                index=it;
+                cout<<*index<<endl;
+            }
+        }
+        
+    
+        else if(com=="next"){
+          nex=next(index,1);
+            if(nex==l.end()) cout<<"Not Available"<<endl;
+            else{
+                index=nex;
+                cout<<*nex<<endl;
+            }
+        }
+        
+        
+        else if(com=="prev"){
+            if(index==l.begin()) cout<<"Not Available"<<endl;
+            else{
+                index=prev(index,1);
+                cout<<*index<<endl;
+            }
+                
+        }
+            
+        
+    }
+
+}
